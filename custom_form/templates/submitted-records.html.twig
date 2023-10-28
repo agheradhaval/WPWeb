@@ -1,0 +1,27 @@
+<table class="custom-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>runame</th>
+      <th>DOB</th>
+      <th>Gender</th>
+      <th>Photo</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for row in data %}
+      <tr>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+        <td><img src="{{ row[5] }}" width="300" height="300"></td>
+      </tr>
+    {% else %}
+      <tr>
+        <td colspan="5">No records found</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

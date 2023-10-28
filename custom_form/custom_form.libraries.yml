@@ -1,0 +1,13 @@
+custom-table-styles:
+  version: 1.x
+  css:
+    theme:
+      css/custom-table-styles.css: {}
+  dependencies:
+    - core/drupal
+
+custom-form-styles:
+  version: 1.x
+  css:
+    theme:
+      css/custom-form-styles.css: {}

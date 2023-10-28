@@ -1,0 +1,62 @@
+<?php
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_install().
+ */
+function custom_form_install() {
+  // Define the schema for the custom table.
+  $schema['custom_form_data'] = [
+    'description' => 'Stores form submissions',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique submission ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Name of the submitter.',
+      ],
+      'runame' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Runame of the submitter.',
+      ],
+      'date_of_birth' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Date of Birth of the submitter.',
+      ],
+      'gender' => [
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'description' => 'Gender of the submitter.',
+      ],
+      'photo' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'File ID of the uploaded image.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  // Create the table.
+  \Drupal::database()->schema()->createTable('custom_form_data', $schema['custom_form_data']);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function custom_form_uninstall() {
+  // Drop the custom table from the database.
+  \Drupal::database()->schema()->dropTable('custom_form_data');
+}

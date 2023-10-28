@@ -1,0 +1,22 @@
+custom_form.custom_form:
+  path: '/custom-form'
+  defaults:
+    _form: '\Drupal\custom_form\Form\CustomForm'
+    _title: 'Custom Form'
+  requirements:
+    _permission: 'access content'
+custom_form.custom_form_config:
+  path: '/admin/config/system/custom-form'
+  defaults:
+    _form: '\Drupal\custom_form\Form\CustomFormConfigForm'
+    _title: 'Custom Form Settings'
+  requirements:
+    _permission: 'administer site configuration'
+custom_form.submitted_records:
+  path: '/submitted-records'
+  defaults:
+    _controller: '\Drupal\custom_form\Controller\SubmittedRecordsController::content'
+    _title: 'Submitted Records'
+  requirements:
+    _permission: 'administer site configuration'
+  

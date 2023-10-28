@@ -1,0 +1,7 @@
+name: 'Custom Form'
+type: module
+description: 'Custom module for form handling.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:config
